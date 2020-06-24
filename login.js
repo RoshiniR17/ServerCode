@@ -7,9 +7,9 @@ module.exports = function(app,mongoDbUrl, MongoClient){
             if (err) { console.log('mongoDb server not conected',err) }
         
             console.log("mongoDb connected successfully to server for login");
-            var db = allDb.db('covidCare');//db name
+            var db = allDb.db('covidcare');//db name
 
-            db.collection("userData").find(userLoginInput).toArray(function(err, result) {
+            db.collection("users").find(userLoginInput).toArray(function(err, result) {
                 if (err){
                     console.log(err);
                     res.send(JSON.stringify("false user"));
