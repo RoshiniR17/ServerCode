@@ -14,7 +14,7 @@ module.exports = function(app,mongoDbUrl, MongoClient, ObjectId){
                 "Username": "rose@123",
                 "Email": "rose@gmail.com",
                 "password": "crazyus"};
-            dbName.collection("users").insertOne(name, function(err, result) 
+            dbName.collection("users").insertOne(userSignUpInput, function(err, result) 
             {
                 
                //if (err) throw err;
@@ -33,9 +33,9 @@ module.exports = function(app,mongoDbUrl, MongoClient, ObjectId){
                // db.users.save(Email:'this.Email',password:'this.password');
                
             
-            
+               db.close();
             });
-            db.close();
+            //db.close();
         });
 
     });
