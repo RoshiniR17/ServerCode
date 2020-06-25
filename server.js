@@ -26,6 +26,7 @@ app.use(bodyParser.json())
 //app.use(express.json());
 
 require('./login')(app,mongoDbUrl, MongoClient);
+require('./signup')(app,mongoDbUrl,MongoClient);
 
 
 const authRoute = require('./routes/auth');

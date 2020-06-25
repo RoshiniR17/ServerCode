@@ -7,24 +7,35 @@ module.exports = function(app,mongoDbUrl, MongoClient, ObjectId){
         
             console.log("mongoDb connected successfully to server for login");
             var dbName = db.db('covidcare');
-            
-            dbName.collection("users").insertOne(userSignUpInput, function(err, res) {
-               // if (err) throw err;
-               // console.log("1 user successfully added");
-
+            console.log("connected");
+            var name={
+                "firstName": "roshini",
+                "lastName": "r",
+                "Username": "rose@123",
+                "Email": "rose@gmail.com",
+                "password": "crazyus"};
+            dbName.collection("users").insertOne(name, function(err, result) 
+            {
+                
+               //if (err) throw err;
+              /*  console.log("1 user successfully added",res.ops);
+                res.send(JSON.stringify("yea working"));*/
+               
                if (err){
                 console.log(err);
-                res.send(JSON.stringify("false user"));
-            }else if (result[0] === undefined){
-                console.log("Invalid register");
-                res.send(JSON.stringify("Invalid register"));
-            }else if (result==="new user"){
-                console.log(result);
-               // db.users.save(Email:'this.Email',password:'this.password');
+                res.send(JSON.stringify("Invaid  registration"));
+                     }
+              else{
                 res.send(JSON.stringify("new user"));
-            };
-                db.close();
+                };
+               
+               
+               // db.users.save(Email:'this.Email',password:'this.password');
+               
+            
+            
             });
+            db.close();
         });
 
     });
