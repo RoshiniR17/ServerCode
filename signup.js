@@ -10,7 +10,6 @@ module.exports = function(app,mongoDbUrl, MongoClient, ObjectId){
             console.log("mongoDb connected successfully to server for login");
             var dbName = db.db('covidcare');
             console.log("connected");
-       
             dbName.collection("users").insertOne(userSignUpInput, function(err, result) 
             {
                
@@ -32,13 +31,8 @@ module.exports = function(app,mongoDbUrl, MongoClient, ObjectId){
                 };
                 db.close();
                
-               
-               
-               
-            
             });
-          
-            
+
         });
       
 
